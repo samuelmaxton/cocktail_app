@@ -26,6 +26,8 @@ namespace CocktailApp
 				options.UseSqlServer(Configuration.GetConnectionString("CocktailsDatabase")));
 
 			services.AddTransient<ISpiritsRepository, SpiritsRepository>();
+			services.AddTransient<IBittersRepository, BittersRepository>();
+			services.AddTransient<ICocktailsRepository, CocktailsRepository>();
 
 			services.AddControllers();
 		}

@@ -12,6 +12,7 @@ namespace CocktailApp.Models
 		public DateTime Origin { get; set; }
 		public int FortifiedWineId { get; set; }
 		public int SpiritId { get; set; }
-		public int BittersId { get; set; }
+
+		public ICollection<CocktailBitters> CocktailBitters { get; set; }
 	}
 }

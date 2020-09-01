@@ -6,7 +6,7 @@ using Microsoft.Extensions.Logging;
 namespace CocktailApp.Controllers
 {
 	[ApiController]
-	[Route("[controller]")]
+	[Route("api/[controller]")]
 	public class SpiritsController : ControllerBase
 	{
 		private readonly ILogger<SpiritsController> _logger;
