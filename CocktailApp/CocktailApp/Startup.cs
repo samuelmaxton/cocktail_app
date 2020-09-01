@@ -1,5 +1,6 @@
 using CocktailApp.Repository;
-using CocktailApp.Repository.DAL;
+using CocktailApp.Repository.Repos;
+using CocktailApp.Repository.Repos.Interfaces;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.EntityFrameworkCore;

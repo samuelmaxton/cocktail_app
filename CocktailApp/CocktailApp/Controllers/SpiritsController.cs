@@ -1,20 +1,18 @@
 ﻿using CocktailApp.Models;
-using CocktailApp.Repository.DAL;
+using CocktailApp.Repository.Repos.Interfaces;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using System;
-using System.IO;
 
 namespace CocktailApp.Controllers
 {
 	[ApiController]
 	[Route("[controller]")]
-	public class SpiritController : ControllerBase
+	public class SpiritsController : ControllerBase
 	{
-		private readonly ILogger<SpiritController> _logger;
+		private readonly ILogger<SpiritsController> _logger;
 		private readonly ISpiritsRepository _spiritsRepository;
 
-		public SpiritController(ILogger<SpiritController> logger, ISpiritsRepository spiritsRepository)
+		public SpiritsController(ILogger<SpiritsController> logger, ISpiritsRepository spiritsRepository)
 		{
 			_logger = logger;
 			_spiritsRepository = spiritsRepository;

@@ -1,7 +1,8 @@
 ﻿using CocktailApp.Models;
 using CocktailApp.Repository.Entities;
+using CocktailApp.Repository.Repos.Interfaces;
 
-namespace CocktailApp.Repository.DAL
+namespace CocktailApp.Repository.Repos
 {
 	public class SpiritsRepository : ISpiritsRepository
 	{

@@ -1,6 +1,6 @@
 ﻿using CocktailApp.Models;
 
-namespace CocktailApp.Repository.DAL
+namespace CocktailApp.Repository.Repos.Interfaces
 {
 	public interface ISpiritsRepository
 	{
