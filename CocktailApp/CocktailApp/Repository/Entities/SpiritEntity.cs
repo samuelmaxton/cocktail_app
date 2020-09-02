@@ -9,6 +9,7 @@ namespace CocktailApp.Repository.Entities
 	{
 		[Key]
 		public int SpiritId { get; set; }
+		[Required]
 		public string Name { get; set; }
 		[Column(TypeName = "decimal(4,1)")]
 		public decimal Abv { get; set; }

@@ -11,6 +11,7 @@ namespace CocktailApp.Repository.Entities
 	{
 		[Key]
 		public int BittersId { get; set; }
+		[Required]
 		public string Name { get; set; }
 		[Column(TypeName = "decimal(4,1)")]
 		public decimal Abv { get; set; }
@@ -26,7 +27,7 @@ namespace CocktailApp.Repository.Entities
 				Name = model.Name,
 				Abv = model.Abv,
 				Type = model.Type,
-				CocktailBitters = model.CocktailBitters?.Select(cb => CocktailBittersEntity.Map(cb))?.ToList()
+				CocktailBitters = model.Cocktails?.Select(Id => new CocktailBittersEntity { CocktailId = Id, BittersId = model.BittersId })?.ToList()
 			};
 		}
 
@@ -38,7 +39,7 @@ namespace CocktailApp.Repository.Entities
 				Name = entity.Name,
 				Abv = entity.Abv,
 				Type = entity.Type,
-				CocktailBitters = entity.CocktailBitters?.Select(cb => CocktailBittersEntity.Map(cb))?.ToList()
+				Cocktails = entity.CocktailBitters?.Select(cb => cb.CocktailId)?.ToList() ?? new List<int>()
 			};
 		}
 	}

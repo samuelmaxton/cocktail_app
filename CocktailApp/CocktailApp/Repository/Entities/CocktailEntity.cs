@@ -12,16 +12,16 @@ namespace CocktailApp.Repository.Entities
 	{
 		[Key]
 		public int CocktailId { get; set; }
+		[Required]
 		public string Name { get; set; }
 		public string Recipe { get; set; }
-		public DateTime Origin { get; set; }
+		[Column(TypeName = "decimal(4,0)")]
+		public int OriginYear { get; set; }
+		public int? FortifiedWineId { get; set; }
+		public int? SpiritId { get; set; }
 
-		public int FortifiedWineId { get; set; }
 		public virtual FortifiedWineEntity FortifiedWine { get; set; }
-
-		public int SpiritId { get; set; }
 		public virtual SpiritEntity Spirit { get; set; }
-
 		public virtual ICollection<CocktailBittersEntity> CocktailBitters { get; set; }
 
 		public static CocktailEntity Map(Cocktail model)
@@ -33,9 +33,8 @@ namespace CocktailApp.Repository.Entities
 				FortifiedWineId = model.FortifiedWineId,
 				SpiritId = model.SpiritId,
 				Recipe = model.Recipe,
-				Origin = model.Origin,
-				CocktailBitters = model.CocktailBitters?.Select(cb => CocktailBittersEntity.Map(cb))?.ToList()
-
+				OriginYear = model.OriginYear,
+				CocktailBitters = model.Bitters?.Select(Id => new CocktailBittersEntity { CocktailId = model.CocktailId, BittersId = Id })?.ToList()
 			};
 		}
 
@@ -48,8 +47,8 @@ namespace CocktailApp.Repository.Entities
 				FortifiedWineId = entity.FortifiedWineId,
 				SpiritId = entity.SpiritId,
 				Recipe = entity.Recipe,
-				Origin = entity.Origin,
-				CocktailBitters = entity.CocktailBitters?.Select(cb => CocktailBittersEntity.Map(cb))?.ToList()
+				OriginYear = entity.OriginYear,
+				Bitters = entity.CocktailBitters?.Select(cb => cb.BittersId)?.ToList() ?? new List<int>()
 			};
 		}
 	}

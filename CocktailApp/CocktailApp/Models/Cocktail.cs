@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace CocktailApp.Models
 {
@@ -7,12 +6,11 @@ namespace CocktailApp.Models
 	{
 		public int CocktailId { get; set; }
 		public string Name { get; set; }
-		public List<Ingredient> Ingredients { get; set; }
 		public string Recipe { get; set; }
-		public DateTime Origin { get; set; }
-		public int FortifiedWineId { get; set; }
-		public int SpiritId { get; set; }
+		public int OriginYear { get; set; }
+		public int? FortifiedWineId { get; set; }
+		public int? SpiritId { get; set; }
 
-		public ICollection<CocktailBitters> CocktailBitters { get; set; }
+		public List<int> Bitters { get; set; } = new List<int>();
 	}
 }

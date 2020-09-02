@@ -27,6 +27,7 @@ namespace CocktailApp
 
 			services.AddTransient<ISpiritsRepository, SpiritsRepository>();
 			services.AddTransient<IBittersRepository, BittersRepository>();
+			services.AddTransient<IFortifiedWinesRepository, FortifiedWinesRepository>();
 			services.AddTransient<ICocktailsRepository, CocktailsRepository>();
 
 			services.AddControllers();

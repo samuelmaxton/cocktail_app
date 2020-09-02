@@ -6,6 +6,6 @@ namespace CocktailApp.Models
 	{
 		public int BittersId { get; set; }
 
-		public ICollection<CocktailBitters> CocktailBitters { get; set; }
+		public List<int> Cocktails { get; set; } = new List<int>();
 	}
 }
